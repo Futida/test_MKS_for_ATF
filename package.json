@@ -1,0 +1,28 @@
+{
+  "name": "test_mks_for_atf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Futida/test_MKS_for_ATF.git"
+  },
+  "author": "Konstantin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Futida/test_MKS_for_ATF/issues"
+  },
+  "homepage": "https://github.com/Futida/test_MKS_for_ATF#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.2",
+    "morgan": "^1.9.1",
+    "node-fetch": "^2.3.0",
+    "nodemon": "^1.18.10",
+    "pg": "^7.9.0"
+  }
+}
