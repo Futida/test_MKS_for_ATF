@@ -11,7 +11,7 @@ const routes = require('./routes/routes');
 //logging middleware for Node
 const logger = require('morgan');
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 4040;
 
 app.use(logger('tiny'));
 
