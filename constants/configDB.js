@@ -5,7 +5,7 @@ const config = {
     port: 5432
 };
 // postgres://${username}:${password}@${localhost}/${database}
-const connectionString = "postgres://admin:admin@10.2.9.96/atf_demo";
+const connectionString = process.env.DB_CONN_STRING || "postgres://admin:admin@10.2.9.96/atf_demo";
 
 module.exports = {
     config: config,
