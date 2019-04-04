@@ -44,7 +44,8 @@ router.route('/route2').post(function(req, res) {
         fetch(`${process.env.API_BASE_URL}/2`, {
             method: 'POST',
             body: JSON.stringify({
-                data: 'atf_demo_1',
+                id: req.body.id,
+                name: req.body.name
             }),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
