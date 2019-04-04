@@ -43,7 +43,7 @@ router.route('/route2').post(function(req, res) {
     if (header) {
         fetch(`${process.env.API_BASE_URL}/2`, {
             method: 'POST',
-            body: req.body,
+            body: JSON.stringify(req.body),
             headers: {
                 "Content-type": "application/json; charset=UTF-8"
             }
