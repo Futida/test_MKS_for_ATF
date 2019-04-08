@@ -11,8 +11,8 @@ let flag = true;
 
 function createHeaders(r) {
     const { headers } = r;
+    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + headers + '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
     const key = Object.keys(headers).filter(header => header === 'testIdHeader');
-
     if (key && key.length) {
         return {
             "Content-type": "application/json; charset=UTF-8",
@@ -35,7 +35,7 @@ router.route('/route1').post(function(req, res) {
         if (err) {
             console.log("Can not connect to the DB" + err);
         }
-        client.query(`UPDATE atf SET status=${status} WHERE "user"=${user}`, function(err, result) {
+        client.query(`UPDATE atf SET status='${status}' WHERE \"user\"='${user}'`, function(err, result) {
             done();
             if (err) {
                 console.log(err);
@@ -166,7 +166,7 @@ router.route('/route4').post(function(req, res) {
                 if (err) {
                     console.log("Can not connect to the DB" + err);
                 }
-                client.query(`UPDATE atf SET data = ${json.data}, time=${new Date().getTime()} WHERE account_id=${account_id}`, function(err) {
+                client.query(`UPDATE atf SET data=${json.data}, time=${new Date().getTime()} WHERE account_id=${account_id}`, function(err) {
                     done();
                     if (err) {
                         console.log(err);
