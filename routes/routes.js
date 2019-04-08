@@ -11,8 +11,7 @@ let flag = true;
 
 function createHeaders(r) {
     const { headers } = r;
-    console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>' + headers + '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<');
-    const key = Object.keys(headers).filter(header => header === 'testIdHeader');
+    const key = Object.keys(headers).filter(header => header === 'testidheader');
     if (key && key.length) {
         return {
             "Content-type": "application/json; charset=UTF-8",
