@@ -142,7 +142,7 @@ router.route('/route4').post(function(req, res) {
                 console.log(err);
                 res.status(400).send(err);
             }
-            const timeFromTable = (result.rows[0] / 1000);
+            const timeFromTable = (Math.round(result.rows[0].time / 1000));
 
             if (currentTime - timeFromTable > process.env.CACHETIME) {
                 flag = true
