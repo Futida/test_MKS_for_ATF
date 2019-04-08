@@ -88,7 +88,7 @@ router.route('/route2').post(function(req, res) {
 });
 
 
-router.route('/route3').post(function(req) {
+router.route('/route3').post(function(req, res) {
     const headers = createHeaders(req);
 
     fetch(`${process.env.API_BASE_URL}/1`, {
