@@ -68,7 +68,7 @@ router.route('/route2').post(function(req, res) {
     } else {
         const header = req.get('x-atf');
         const headers = createHeaders(req);
-        req.body["request_id"] = Math.floor(Math.random() * 10000000);
+        req.body["request_id"] = Math.floor(Math.random() * 10000000).toString();
 
         if (header === '1223') {
             fetch(`${process.env.API_BASE_URL}/2`, {
