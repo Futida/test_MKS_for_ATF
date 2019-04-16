@@ -76,8 +76,7 @@ router.route('/route2').post(function(req, res) {
                 body: JSON.stringify(req.body),
                 headers
             })
-            .then(response => response.json())
-            .then(json => res.send(json))
+            .then(response => res.send(response))
         } else {
             res.status(400).send({
                 errorCode: "LOGIC_ERROR",
