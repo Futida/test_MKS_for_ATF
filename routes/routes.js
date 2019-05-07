@@ -56,36 +56,21 @@ router.route('/route1').post(function(req, res) {
     })
 });
 
-router.route('/route2').post(function(req, res) {
-    const headers = req.headers;
-    const key = Object.keys(headers).filter(header => header === 'x-atf');
+router.route('/getUserAlias').post(function(req, res) {
+    const headers = createHeaders(req);
+    req.body["request_id"] = Math.floor(Math.random() * 10000000).toString();
 
-    if (key && !key.length) {
-        res.status(400).send({
-            errorCode: "LOGIC_ERROR",
-            cause: "Отсутствует заголовок x-atf"
-        });
-    } else {
-        const header = req.get('x-atf');
-        const headers = createHeaders(req);
-        req.body["request_id"] = Math.floor(Math.random() * 10000000).toString();
-
-        if (header === '1223') {
-            fetch(`${process.env.API_BASE_URL}/2`, {
-                method: 'POST',
-                body: JSON.stringify(req.body),
-                headers
-            })
-            .then(response => response.json())
-            .then(json => res.send(json))
-            .catch(err => console.log('>>>>>>>>>>>>>>>>>>>>>', err))
-        } else {
-            res.status(400).send({
-                errorCode: "LOGIC_ERROR",
-                cause: "Значение заголовка x-atf некорректно",
-            });
-        }
-    }
+    fetch(`${process.env.API_BASE_URL}/checkUser`, {
+        method: 'POST',
+        body: JSON.stringify(req.body),
+        headers
+    })
+    .then(response => response.json())
+    .then(json => res.send(json))
+    .catch(err => {
+        console.log('>>>>>>>>>>>>>>>>>>>>>', err)
+        res.status(500).send(err.message);
+    });
 });
 
 
